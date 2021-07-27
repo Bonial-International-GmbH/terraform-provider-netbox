@@ -9,8 +9,10 @@ import (
 	"github.com/netbox-community/go-netbox/netbox/client"
 )
 
-const authHeaderName = "Authorization"
-const authHeaderFormat = "Token %v"
+const (
+	authHeaderName   = "Authorization"
+	authHeaderFormat = "Token %v"
+)
 
 // Provider exports the actual provider.
 func Provider() *schema.Provider {
@@ -128,6 +130,7 @@ func Provider() *schema.Provider {
 			"netbox_virtualization_cluster":                       dataNetboxVirtualizationCluster(),
 		},
 		ResourcesMap: map[string]*schema.Resource{
+			"netbox_dcim_site":                resourceNetboxDcimSite(),
 			"netbox_ipam_aggregate":           resourceNetboxIpamAggregate(),
 			"netbox_ipam_ip_addresses":        resourceNetboxIpamIPAddresses(),
 			"netbox_ipam_prefix":              resourceNetboxIpamPrefix(),
